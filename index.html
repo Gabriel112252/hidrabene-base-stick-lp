@@ -254,6 +254,8 @@
     }
 
     /* ─── PRICE ──────────────────────────────────────── */
+    .badge-chip svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .price-old { display: inline-block; font-family: var(--font-title); font-size: 14px; font-weight: 600; color: var(--gray); text-decoration: line-through; margin-bottom: 4px; }
     .price-block { margin-bottom: 20px; }
     .price-main {
       font-family: var(--font-title);
@@ -1345,21 +1347,22 @@
           Protetor solar e base no mesmo stick. FPS 50 contra UVA, UVB e luz visível, com cobertura alta que segura o dia inteiro. Um produto no lugar de vários.
         </p>
         <div class="product-badges" role="list">
-          <span class="badge-chip" role="listitem">Alta Cobertura</span>
-          <span class="badge-chip" role="listitem">Acabamento Matte</span>
-          <span class="badge-chip" role="listitem">Antiacne</span>
+          <span class="badge-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg>Alta Cobertura</span>
+          <span class="badge-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 3v18a9 9 0 0 0 0-18z" fill="currentColor" stroke="none"/></svg>Acabamento Matte</span>
+          <span class="badge-chip" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Antiacne</span>
         </div>
 
         <div class="price-block">
-          <div class="price-main">R$ 96,46</div>
-          <div class="price-installment">ou 6x de R$ 16,08 sem juros</div>
+          <span class="price-old">De R$ 96,46</span>
+          <div class="price-main">por R$ 74,90</div>
+          <div class="price-installment">ou 6x de R$ 12,48 sem juros</div>
         </div>
 
         <div class="variant-head">
-          <p class="variant-label">Cor: <span class="variant-selected-name" id="shadeName">Clara 1.0</span></p>
+          <p class="variant-label">Cor: <span class="variant-selected-name" id="shadeName">Selecione seu tom</span></p>
         </div>
         <div class="variants-grid" role="group" aria-label="Escolha a cor">
-          <button class="variant-option selected" aria-pressed="true" data-shade="Clara 1.0">
+          <button class="variant-option" aria-pressed="false" data-shade="Clara 1.0">
             <span class="variant-swatch" style="background:#E8C9A8;" aria-hidden="true"></span>
             Clara 1.0
           </button>
@@ -1386,37 +1389,8 @@
           Como escolher meu tom?
         </button>
 
-        <div class="qty-row">
-          <span class="qty-label">Quantidade</span>
-          <div class="qty-stepper" role="group" aria-label="Quantidade">
-            <button class="qty-btn" type="button" data-step="-1" aria-label="Diminuir quantidade">−</button>
-            <span class="qty-value" id="qtyValue" aria-live="polite">1</span>
-            <button class="qty-btn" type="button" data-step="1" aria-label="Aumentar quantidade">+</button>
-          </div>
-        </div>
-
-        <div class="bundle-grid" role="group" aria-label="Escolha a oferta">
-          <button class="bundle-card selected" type="button" data-pack="1" aria-pressed="true">
-            <span class="bundle-radio" aria-hidden="true"></span>
-            <p class="bundle-name">1 unidade</p>
-            <p class="bundle-sub">Pra experimentar</p>
-            <p class="bundle-price">R$ 96,46</p>
-          </button>
-          <button class="bundle-card" type="button" data-pack="2" aria-pressed="false">
-            <span class="bundle-tag">Mais vendido</span>
-            <span class="bundle-radio" aria-hidden="true"></span>
-            <p class="bundle-name">Leve 2</p>
-            <p class="bundle-sub">−15% · economize R$ 28,94</p>
-            <p class="bundle-price">R$ 163,98 <s>R$ 192,92</s></p>
-          </button>
-        </div>
-
         <span class="cta-selo">10% OFF · primeira compra</span>
-        <button class="cta-primary" onclick="comprarAgora()">
-          Adicionar · <span id="ctaPrice">R$ 96,46</span> →
-        </button>
-
-        <p class="shipping-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;vertical-align:-2px;display:inline-block;"><path d="M3 7h11v8H3z"/><path d="M14 10h4l3 3v2h-7z"/><circle cx="7" cy="17" r="1.6"/><circle cx="17.5" cy="17" r="1.6"/></svg> Frete grátis em compras acima de R$ 150</p>
+        <button class="cta-primary" onclick="comprarAgora()">Comprar agora →</button>
 
         <!-- Selos da marca -->
         <div class="seals-strip" role="list" aria-label="Certificações da marca">
@@ -1571,38 +1545,6 @@
       });
     });
 
-    // Buy box — quantidade, oferta (bundle) e preço dinâmico no CTA
-    (function () {
-      const fmt = v => 'R$ ' + v.toFixed(2).replace('.', ',');
-      const packs = { '1': 96.46, '2': 163.98 };
-      let pack = '1', qty = 1;
-      const ctaPrice = document.getElementById('ctaPrice');
-      const qtyValue = document.getElementById('qtyValue');
-      function render() {
-        if (ctaPrice) ctaPrice.textContent = fmt(packs[pack] * qty);
-        if (qtyValue) qtyValue.textContent = qty;
-      }
-      document.querySelectorAll('.bundle-card').forEach(card => {
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.bundle-card').forEach(c => {
-            c.classList.remove('selected');
-            c.setAttribute('aria-pressed', 'false');
-          });
-          card.classList.add('selected');
-          card.setAttribute('aria-pressed', 'true');
-          pack = card.dataset.pack;
-          render();
-        });
-      });
-      document.querySelectorAll('.qty-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          qty = Math.max(1, qty + parseInt(btn.dataset.step, 10));
-          render();
-        });
-      });
-      render();
-    })();
-
     // Autoplay de vídeos (UGC + antes/depois) só quando visíveis na tela
     (function () {
       const vids = document.querySelectorAll('.ugc-video, .vid-inview');
@@ -1635,15 +1577,17 @@
       alert('Guia de tons: a gente te ajuda a achar seu tom ideal.\n\n(Integrar quiz de shade-match na versão final)');
     }
 
-    // Comprar agora — checkout direto (substituir pela integração com Shopify/plataforma)
+    // Comprar agora — exige tom selecionado (substituir pela integração com Shopify/plataforma)
     function comprarAgora() {
       const selected = document.querySelector('.variant-option.selected');
-      const variant = selected ? (selected.dataset.shade || selected.textContent.trim()) : 'Clara 1.0';
-      const bundle = document.querySelector('.bundle-card.selected');
-      const pack = bundle ? bundle.querySelector('.bundle-name').textContent.trim() : '1 unidade';
-      const qty = (document.getElementById('qtyValue') || {}).textContent || '1';
-      const total = (document.getElementById('ctaPrice') || {}).textContent || '';
-      alert(`Comprar: Base Stick FPS 50\nTom: ${variant}\nOferta: ${pack} (×${qty})\nTotal: ${total}\n\n(Integrar com o checkout do Shopify ou plataforma do cliente)`);
+      if (!selected) {
+        alert('Escolha o seu tom antes de continuar.');
+        const grid = document.querySelector('.variants-grid');
+        if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+      const variant = selected.dataset.shade || selected.textContent.trim();
+      alert(`Comprar: Base Stick FPS 50\nTom: ${variant}\nPreço: R$ 74,90\n\n(Integrar com o checkout do Shopify ou plataforma do cliente)`);
     }
   </script>
 
