@@ -158,6 +158,8 @@
       aspect-ratio: 9 / 16;
     }
     .antes-depois-video video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .ad-attrs { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 22px auto 0; max-width: 360px; }
+    .ad-cta { max-width: 340px; margin: 18px auto 4px; }
 
     /* ─── PRODUCT CAROUSEL ───────────────────────────── */
     .carousel-wrap {
@@ -835,7 +837,7 @@
     /* ─── HERO LANÇAMENTO (lifestyle) ─────────────────── */
     /* HERO mobile — vídeo quadrado arredondado, quase full-width, separado do texto */
     .hero-a1-wrap { padding: 12px 0 0; }
-    .hero-launch-media { position: relative; width: calc(100% - 16px); margin: 0 auto; aspect-ratio: 4 / 3; border-radius: var(--radius-md); overflow: hidden; background: var(--dark); }
+    .hero-launch-media { position: relative; width: calc(100% - 16px); margin: 0 auto; aspect-ratio: 4 / 5; border-radius: var(--radius-md); overflow: hidden; background: var(--dark); }
     .hero-launch-media video, .hero-launch-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .hero-a1-content { padding: 24px 20px 8px; }
 
@@ -849,6 +851,7 @@
     .hero-launch-media .carousel-slide { aspect-ratio: auto; height: 100%; background: var(--dark); }
     .hero-launch-media .carousel-slide img,
     .hero-launch-media .carousel-slide video { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-launch-media .carousel-slide video { object-position: center 25%; }
     .hero-launch-media .carousel-dots { position: absolute; left: 0; right: 0; bottom: 12px; padding: 0; background: transparent; z-index: 2; }
     .hero-launch-media .carousel-dot { background: rgba(255,255,255,0.5); }
     .hero-launch-media .carousel-dot.active { background: var(--white); }
@@ -949,7 +952,7 @@
         align-items: center; gap: 56px;
         padding: 48px var(--content-pad) 28px;
       }
-      .hero-launch-media { position: relative; inset: auto; width: 100%; margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius-md); z-index: auto; }
+      .hero-launch-media { position: relative; inset: auto; width: 100%; margin: 0; aspect-ratio: 4 / 5; border-radius: var(--radius-md); z-index: auto; }
       .hero-a1-content { position: static; padding: 0; }
       .hero-a1-content .hero-launch-eyebrow { color: var(--pink-accent); }
       .hero-a1-content .hero-a1-headline { color: var(--dark); font-size: 50px; }
@@ -1040,7 +1043,7 @@
       <div class="carousel-wrap">
         <div class="carousel-track">
           <div class="carousel-slide">
-            <video class="hero-launch-video" autoplay muted loop playsinline preload="auto" poster="./assets/images/hero-poster.jpg" aria-label="Base Stick FPS 50 em uso">
+            <video class="hero-launch-video" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="./assets/images/hero-poster.jpg" aria-label="Base Stick FPS 50 em uso">
               <source src="./assets/video/hero-broll.mp4" type="video/mp4" />
             </video>
           </div>
@@ -1084,13 +1087,13 @@
   <section class="ugc-section" aria-label="Quem usa">
     <p class="ugc-label">Quem usa e aprova</p>
     <div class="ugc-scroll" role="list">
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-1.jpg"><source src="./assets/video/ugc/u1.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-2.jpg"><source src="./assets/video/ugc/u2.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-3.jpg"><source src="./assets/video/ugc/u3.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-4.jpg"><source src="./assets/video/ugc/u4.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-5.jpg"><source src="./assets/video/ugc/u5.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-6.jpg"><source src="./assets/video/ugc/u6.mp4" type="video/mp4" /></video></div>
-      <div class="ugc-card" role="listitem"><video class="ugc-video" muted loop playsinline preload="metadata" poster="./assets/images/poster-ugc-7.jpg"><source src="./assets/video/ugc/u7.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-1.jpg"><source src="./assets/video/ugc/u1.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-2.jpg"><source src="./assets/video/ugc/u2.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-3.jpg"><source src="./assets/video/ugc/u3.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-4.jpg"><source src="./assets/video/ugc/u4.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-5.jpg"><source src="./assets/video/ugc/u5.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-6.jpg"><source src="./assets/video/ugc/u6.mp4" type="video/mp4" /></video></div>
+      <div class="ugc-card" role="listitem"><video class="ugc-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="./assets/images/poster-ugc-7.jpg"><source src="./assets/video/ugc/u7.mp4" type="video/mp4" /></video></div>
     </div>
   </section>
 
@@ -1132,10 +1135,17 @@
   <section class="antes-depois-section" aria-label="Antes e depois">
     <h2 class="section-title" style="text-align:center;">Veja o <em>antes e depois</em></h2>
     <div class="antes-depois-video">
-      <video class="vid-inview" muted loop playsinline preload="metadata" poster="./assets/images/poster-antes-depois.jpg">
+      <video class="vid-inview" autoplay muted loop playsinline webkit-playsinline preload="auto" poster="./assets/images/poster-antes-depois.jpg">
         <source src="./assets/video/antes-depois.mp4" type="video/mp4" />
       </video>
     </div>
+    <div class="ad-attrs" role="list">
+      <span class="badge-chip" role="listitem">FPS 50</span>
+      <span class="badge-chip" role="listitem">Alta Cobertura</span>
+      <span class="badge-chip" role="listitem">Antiacne</span>
+      <span class="badge-chip" role="listitem">Toque Seco</span>
+    </div>
+    <button class="cta-primary ad-cta" onclick="document.getElementById('oferta').scrollIntoView({ behavior: 'smooth' })">Comprar agora →</button>
   </section>
 
   <!-- ░░ HOOKS (5 razões) ░░ -->
